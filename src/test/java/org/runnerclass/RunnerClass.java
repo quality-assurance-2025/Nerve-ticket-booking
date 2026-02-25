@@ -6,7 +6,7 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="E:\\Selenium\\CLSSNervedemo\\src\\test\\resources\\nerve.feature\\nerve.feature",
+@CucumberOptions(features="src\\test\\resources\\nerve.feature\\nerve.feature",
 snippets =SnippetType.CAMELCASE,
 glue="org.steps"
 )
