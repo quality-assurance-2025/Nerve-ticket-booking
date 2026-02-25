@@ -53,6 +53,10 @@ public class Fulldaynonbillable {
 		else {
 			System.out.println("No ForceLogin");
 		}
+		System.out.println("No ForceLogin");
+		System.out.println("No ForceLogin");
+		System.out.println("No ForceLogin");
+
 	}
 
 	@Given("the user navigates to Ticket Management")
