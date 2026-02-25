@@ -53,9 +53,6 @@ public class Fulldaynonbillable {
 		else {
 			System.out.println("No ForceLogin");
 		}
-		System.out.println("No ForceLogin");
-		System.out.println("No ForceLogin");
-		System.out.println("No ForceLogin");
 
 	}
 
