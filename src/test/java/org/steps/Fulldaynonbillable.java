@@ -132,7 +132,7 @@ public class Fulldaynonbillable {
 		WebElement date1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label=\"Open calendar\"]")));
 		date1.click();
 
-		WebElement date2 = driver.findElement(By.xpath("//div[text()="+ConfigReader.get("date")+"]"));
+		WebElement date2 = driver.findElement(By.xpath("//div[text()=' "+ConfigReader.get("date")+" ']"));
 		date2.click();
 
 		/*
