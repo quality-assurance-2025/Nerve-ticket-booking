@@ -46,7 +46,7 @@ public class Fulldaynonbillable {
 
 		Thread.sleep(2000);
 
-		WebElement forceLogin = driver.findElement(By.xpath("//span[text()=\" Force Login? \"]"));
+		WebElement forceLogin = driver.findElement(By.xpath("//span[text()=' Force Login? ']"));
 		if(forceLogin.isDisplayed()) {
 			forceLogin.click();
 		}
@@ -135,7 +135,6 @@ public class Fulldaynonbillable {
 		Thread.sleep(3000);
 
 		String date3 = ConfigReader.get("date");
-		System.out.println(date3);
 		WebElement date2 = wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath("//div[text()=' " +date3+ " ']")));
 		date2.click();
