@@ -74,7 +74,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>CLSS Nerve Automation</td>
-      <td>09 Mar 2026, 12:39</td>
+      <td>09 Mar 2026, 12:42</td>
     </tr>
   </tbody>
 </table>
@@ -127,19 +127,19 @@ $(document).ready(function() {
         <tbody>
         <tr>
           <td class="tagname">Non-Billable Time Booking</td>
+          <td      class="passed"    >8</td>
           <td >0</td>
-          <td      class="failed"    >1</td>
-          <td     class="skipped"   >7</td>
+          <td >0</td>
           <td >0</td>
           <td >0</td>
           <td class="total">8</td>
 
+          <td  class="passed"    >1</td>
           <td >0</td>
-          <td  class="failed"    >1</td>
           <td class="total">1</td>
 
-          <td class="duration" data-value="15796914200">15.796</td>
-          <td class="failed">Failed</td>
+          <td class="duration" data-value="51357667700">51.357</td>
+          <td class="passed">Passed</td>
         </tr>
         </tbody>
 
@@ -171,7 +171,7 @@ $(document).ready(function() {
 </div>
 
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Feature</span>
   <span class="name">Non-Billable Time Booking</span>
 
@@ -189,12 +189,12 @@ $(document).ready(function() {
 </div>
 
 
-  <span class="lead-duration duration">15.796</span>
+  <span class="lead-duration duration">51.357</span>
 
 
-  <span data-toggle="collapse" class=" collapsable-control" data-target="#element-1">
+  <span data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#element-1">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Scenario</span>
   <span class="name">User adds non-billable time successfully</span>
 
@@ -205,16 +205,16 @@ $(document).ready(function() {
   </span>
   <div class="description indention"></div>
 
-  <div id="element-1" class="collapse collapsable-details  in ">
+  <div id="element-1" class="collapse collapsable-details ">
 
 
 
 
 
 <div class="steps inner-level">
-  <div data-toggle="collapse" class=" collapsable-control" data-target="#steps-2">
+  <div data-toggle="collapse" class=" collapsed  collapsable-control" data-target="#steps-2">
 
-<div class="brief failed">
+<div class="brief passed">
   <span class="keyword indention">Steps</span>
   <span class="name"></span>
 
@@ -224,15 +224,15 @@ $(document).ready(function() {
 
   </div>
 
-  <div id="steps-2" class="inner-level collapse collapsable-details  in ">
+  <div id="steps-2" class="inner-level collapse collapsable-details ">
       <div class="step">
 
 
-<div class="brief step-name-Given failed">
+<div class="brief step-name-Given passed">
   <span class="keyword indention">Given</span>
   <span class="name">the user is logged into the application</span>
 
-  <span class="lead-duration duration">15.795</span>
+  <span class="lead-duration duration">16.195</span>
 
 </div>
 
@@ -240,42 +240,6 @@ $(document).ready(function() {
 
 
 
-
-  <div class="inner-level">
-    <div class="message indention">
-      <div data-toggle="collapse" class=" collapsable-control" data-target="#msg-3">
-          <a>org.openqa.selenium.NoSuchElementException:</a>
-      </div>
-      <div id="msg-3" class="collapse collapsable-details  in ">
-        <pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[text()=&quot; Force Login? &quot;]&quot;}
-  (Session info: chrome=145.0.7632.160)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: '4.18.1', revision: 'b1d3319b48'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [81ee8a58209ca4f6c9c832b8f906cbc4, findElement {using=xpath, value=//span[text()=&quot; Force Login? &quot;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 145.0.7632.160, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: C:\Users\CLSS-I~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:65424}, goog:processID: 40364, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65424/devtoo..., se:cdpVersion: 145.0.7632.160, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.steps.Fulldaynonbillable.theUserIsLoggedIntoTheApplication(Fulldaynonbillable.java:49)
-	at &#10045;.the user is logged into the application(file:///E:/Selenium/CLSSNervedemo/src/test/resources/nerve.feature/nerve.feature:6)
-</pre>
-      </div>
-    </div>
-  </div>
 
 
 
@@ -291,11 +255,11 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-And skipped">
+<div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
   <span class="name">the user navigates to Ticket Management</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">2.622</span>
 
 </div>
 
@@ -318,11 +282,11 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
   <span class="name">the user searches for the ticket and opens it</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">8.519</span>
 
 </div>
 
@@ -345,11 +309,11 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-And skipped">
+<div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
   <span class="name">the user clicks on Time Booking</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">5.043</span>
 
 </div>
 
@@ -372,11 +336,11 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-And skipped">
+<div class="brief step-name-And passed">
   <span class="keyword indention">And</span>
   <span class="name">the user fills in the details and clicks Add</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">12.908</span>
 
 </div>
 
@@ -399,7 +363,7 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">the non-billable time should be added successfully</span>
 
@@ -426,11 +390,11 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-When skipped">
+<div class="brief step-name-When passed">
   <span class="keyword indention">When</span>
   <span class="name">the user logs out of the application</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">5.547</span>
 
 </div>
 
@@ -453,11 +417,11 @@ Session ID: 81ee8a58209ca4f6c9c832b8f906cbc4
       <div class="step">
 
 
-<div class="brief step-name-Then skipped">
+<div class="brief step-name-Then passed">
   <span class="keyword indention">Then</span>
   <span class="name">the login page should be displayed</span>
 
-  <span class="lead-duration duration">0.000</span>
+  <span class="lead-duration duration">0.518</span>
 
 </div>
 
