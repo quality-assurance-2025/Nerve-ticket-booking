@@ -33,14 +33,14 @@ public class Fulldaynonbillable {
 		WebDriverManager.chromedriver().setup();  
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		
+
 		//Live Server 
 		driver.get("https://nerve.clsslabs.com/#/ticket");
-		
+
 		//Login 
 		WebElement email = driver.findElement(By.id("email"));
 		email.sendKeys(ConfigReader.get("username"));
-		
+
 		WebElement password = driver.findElement(By.id("password"));
 		password.sendKeys(ConfigReader.get("password"), Keys.ENTER);
 
@@ -53,24 +53,26 @@ public class Fulldaynonbillable {
 		else {
 			System.out.println("No ForceLogin");
 		}
+		Thread.sleep(2000);
 
 	}
 
 	@Given("the user navigates to Ticket Management")
 	public void theUserNavigatesToTicketManagement() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-		
+
 		String title = driver.getTitle();
 		System.out.println(title);
-		
-		
-		 if(title.equals("CLSS Nerve - Tickets Management System")) {
-				System.out.println("========== TITLE ==========");
-				System.out.println("Welcome TO CLSS Nerve - Tickets Management System");
-		  
-		  }
-		 
+
+
+		if(title.equals("CLSS Nerve - Tickets Management System")) {
+			System.out.println("========== TITLE ==========");
+
+			System.out.println("Welcome TO CLSS Nerve - Tickets Management System");
+
+		}
+
 
 		WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/app-main-layout/app-header/nav/div/div[2]/ul[1]/li/button/span[1]/i")));
 		button.click();
@@ -78,7 +80,7 @@ public class Fulldaynonbillable {
 
 		WebElement transactions = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=\"Transactions \"]")));
 		transactions.click();
-		//System.out.println("Transaction is clicked");
+	//	System.out.println("Transaction is clicked");
 
 		WebElement ticketManagement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[text()=' Ticket Management ']")));
 		ticketManagement.click();
@@ -87,34 +89,39 @@ public class Fulldaynonbillable {
 
 
 	@When("the user searches for the ticket and opens it")
-	public void theUserSearchesForTheTicketAndOpensIt() throws InterruptedException  {
+	public void theUserSearchesForTheTicketAndOpensIt() throws InterruptedException, IOException  {
+		
+		ConfigReader.loadProperties();
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
+		String ticketNumber = ConfigReader.get("ticketNumber");
+		
 		WebElement searchBox =wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath("/html/body/app-root/app-main-layout/app-ticket/section/div/div/div/div/div/div/div[3]/dx-data-grid/div/div[5]/div[1]/table/tbody/tr[2]/td[3]/div/div[2]/div/div/div[1]/input"))); 
-		searchBox.sendKeys("CLSNBSDAA10000717");
+		searchBox.sendKeys(ticketNumber);
 
-						/*
-						 * WebElement searchBox =
-						 * wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath(
-						 * "/html/body/app-root/app-main-layout/app-ticket/section/div/div/div/div/div/div/div[3]/dx-data-grid/div/div[5]/div[1]/table/tbody/tr[2]/td[3]/div/div[2]/div/div/div[1]/input"
-						 * ))); searchBox.sendKeys("HAPALASAA10000031");
-						 */
+		/*
+		 * WebElement searchBox =
+		 * wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath(
+		 * "/html/body/app-root/app-main-layout/app-ticket/section/div/div/div/div/div/div/div[3]/dx-data-grid/div/div[5]/div[1]/table/tbody/tr[2]/td[3]/div/div[2]/div/div/div[1]/input"
+		 * ))); searchBox.sendKeys("HAPALASAA10000031");
+		 */
+		
 
 
 		Thread.sleep(2000);	
-		WebElement ticket1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/app-main-layout/app-ticket/section/div/div/div/div/div/div/div[3]/dx-data-grid/div/div[6]/div[2]/table/tbody/tr[1]/td[3]")));
-				
+		WebElement ticket1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//td[text()='"+ticketNumber+"'])[2]"))); 
+
 		Actions actions = new Actions(driver);
 		actions.doubleClick(ticket1).perform();
-				
-		//System.out.println("Action performed");
+
+		System.out.println("Action performed");
 	}
 
 	@When("the user clicks on Time Booking")
 	public void theUserClicksOnTimeBooking() throws InterruptedException { 
-		Thread.sleep(5000);
 
+		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		WebElement timeBooking = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Time Booking']")));
@@ -126,13 +133,14 @@ public class Fulldaynonbillable {
 
 	@When("the user fills in the details and clicks Add")
 	public void theUserFillsInTheDetailsAndClicksAdd()  throws InterruptedException, IOException {
+		//Thread.sleep(5000);
 		ConfigReader.loadProperties(); 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement date1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label=\"Open calendar\"]")));
 		date1.click();
 
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 
 		String date3 = ConfigReader.get("date");
 		WebElement date2 = wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -148,17 +156,18 @@ public class Fulldaynonbillable {
 		 * select.selectByValue("8");
 		 */
 
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		WebElement hours = wait.until(ExpectedConditions.elementToBeClickable(By.id("mat-select-value-13")));
 		hours.click();
 
 		WebElement hour = driver.findElement(By.xpath("//span[text()='"+ConfigReader.get("hours")+"']"));
 		hour.click();
 
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
+		String remarks1 = ConfigReader.get("remarks");
 
 		WebElement remarks = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mat-input-21")));
-		remarks.sendKeys("Regression testing and automation testing practice");
+		remarks.sendKeys(remarks1);
 
 	}
 
@@ -166,11 +175,11 @@ public class Fulldaynonbillable {
 	@Then("the non-billable time should be added successfully")
 	public void theNonBillableTimeShouldBeAddedSuccessfully() throws InterruptedException {
 		//do by manual
-		
+
 		/*
 		 * WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-		
+
 		 * WebElement addButton =
 		 * driver.findElement(By.xpath("//span[text()=' Add ']")); addButton.click();
 		 */
@@ -179,7 +188,7 @@ public class Fulldaynonbillable {
 
 	@When("the user logs out of the application")
 	public void theUserLogsOutOfTheApplication() throws InterruptedException {
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		WebElement closeButton = wait.until(ExpectedConditions.elementToBeClickable(
