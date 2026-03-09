@@ -73,15 +73,15 @@ public class Fulldaynonbillable {
 
 		WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/app-main-layout/app-header/nav/div/div[2]/ul[1]/li/button/span[1]/i")));
 		button.click();
-		System.out.println("Side bar opened");
+		//System.out.println("Side bar opened");
 
 		WebElement transactions = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=\"Transactions \"]")));
 		transactions.click();
-		System.out.println("Transaction is clicked");
+		//System.out.println("Transaction is clicked");
 
 		WebElement ticketManagement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[text()=' Ticket Management ']")));
 		ticketManagement.click();
-		System.out.println("Page redirected to Ticket Management");
+		//System.out.println("Page redirected to Ticket Management");
 	}
 
 
@@ -107,12 +107,12 @@ public class Fulldaynonbillable {
 		Actions actions = new Actions(driver);
 		actions.doubleClick(ticket1).perform();
 				
-		System.out.println("Action performed");
+		//System.out.println("Action performed");
 	}
 
 	@When("the user clicks on Time Booking")
 	public void theUserClicksOnTimeBooking() throws InterruptedException { 
-		Thread.sleep(20000);
+		Thread.sleep(5000);
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
@@ -125,15 +125,22 @@ public class Fulldaynonbillable {
 
 	@When("the user fills in the details and clicks Add")
 	public void theUserFillsInTheDetailsAndClicksAdd()  throws InterruptedException, IOException {
-		Thread.sleep(5000);
 		ConfigReader.loadProperties(); 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 		WebElement date1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label=\"Open calendar\"]")));
 		date1.click();
 
-		WebElement date2 = driver.findElement(By.xpath("//div[text()=' "+ConfigReader.get("date")+" ']"));
+		Thread.sleep(3000);
+
+		String date3 = ConfigReader.get("date");
+		System.out.println(date3);
+		WebElement date2 = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//div[text()=' " +date3+ " ']")));
 		date2.click();
+
+		//		WebElement date2 = driver.findElement(By.xpath());
+		
 
 		/*
 		 * WebElement hours = driver.findElement(By.id("//mat-select[@id=\"mat-select-12\"]")); 
@@ -141,10 +148,11 @@ public class Fulldaynonbillable {
 		 * select.selectByValue("8");
 		 */
 
+		Thread.sleep(3000);
 		WebElement hours = wait.until(ExpectedConditions.elementToBeClickable(By.id("mat-select-value-13")));
 		hours.click();
 
-		WebElement hour = driver.findElement(By.xpath("//span[text()="+ConfigReader.get("hours")+"]"));
+		WebElement hour = driver.findElement(By.xpath("//span[text()='"+ConfigReader.get("hours")+"']"));
 		hour.click();
 
 		Thread.sleep(5000);

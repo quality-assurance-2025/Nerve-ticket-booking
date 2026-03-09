@@ -32,13 +32,13 @@
 </dependency>
 
 		
-		
-	<dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>5.8.0</version>
+		<dependency>
+    <groupId>net.masterthought</groupId>
+    <artifactId>cucumber-reporting</artifactId>
+    <version>5.7.0</version>
 </dependency>
 
+	
 
 	</dependencies>
 
