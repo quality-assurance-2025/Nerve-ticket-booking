@@ -140,7 +140,7 @@ public class Fulldaynonbillable {
 		WebElement date1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label=\"Open calendar\"]")));
 		date1.click();
 
-		//Thread.sleep(3000);
+		Thread.sleep(1000);
 
 		String date3 = ConfigReader.get("date");
 		WebElement date2 = wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -156,18 +156,17 @@ public class Fulldaynonbillable {
 		 * select.selectByValue("8");
 		 */
 
-		//Thread.sleep(3000);
+		Thread.sleep(1000);
 		WebElement hours = wait.until(ExpectedConditions.elementToBeClickable(By.id("mat-select-value-13")));
 		hours.click();
 
 		WebElement hour = driver.findElement(By.xpath("//span[text()='"+ConfigReader.get("hours")+"']"));
 		hour.click();
 
-		//Thread.sleep(5000);
-		String remarks1 = ConfigReader.get("remarks");
-
+		Thread.sleep(2000);
 		WebElement remarks = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mat-input-21")));
-		remarks.sendKeys(remarks1);
+		remarks.sendKeys("Regression testing and automation testing practice");
+
 
 	}
 
