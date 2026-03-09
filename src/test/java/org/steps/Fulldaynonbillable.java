@@ -124,9 +124,9 @@ public class Fulldaynonbillable {
 
 
 	@When("the user fills in the details and clicks Add")
-	public void theUserFillsInTheDetailsAndClicksAdd()  throws InterruptedException {
+	public void theUserFillsInTheDetailsAndClicksAdd()  throws InterruptedException, IOException {
 		Thread.sleep(5000);
-
+		ConfigReader.loadProperties(); 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
 		WebElement date1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label=\"Open calendar\"]")));
