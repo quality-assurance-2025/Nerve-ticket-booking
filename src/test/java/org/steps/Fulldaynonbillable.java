@@ -53,7 +53,7 @@ public class Fulldaynonbillable {
 		else {
 			System.out.println("No ForceLogin");
 		}
-		Thread.sleep(2000);
+		
 
 	}
 
@@ -67,13 +67,13 @@ public class Fulldaynonbillable {
 
 
 		if(title.equals("CLSS Nerve - Tickets Management System")) {
-			System.out.println("========== TITLE ==========");
+			System.out.println("			========== TITLE ==========");
 
-			System.out.println("Welcome TO CLSS Nerve - Tickets Management System");
+			System.out.println("			Welcome TO CLSS Nerve - Tickets Management System");
 
 		}
 
-
+		Thread.sleep(2000);
 		WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/app-main-layout/app-header/nav/div/div[2]/ul[1]/li/button/span[1]/i")));
 		button.click();
 		//System.out.println("Side bar opened");
@@ -115,7 +115,7 @@ public class Fulldaynonbillable {
 		Actions actions = new Actions(driver);
 		actions.doubleClick(ticket1).perform();
 
-		System.out.println("Action performed");
+		//System.out.println("Action performed");
 	}
 
 	@When("the user clicks on Time Booking")
@@ -165,7 +165,8 @@ public class Fulldaynonbillable {
 
 		Thread.sleep(2000);
 		WebElement remarks = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mat-input-21")));
-		remarks.sendKeys("Regression testing and automation testing practice");
+		String string = ConfigReader.get("remarks");
+		remarks.sendKeys(string);
 
 
 	}

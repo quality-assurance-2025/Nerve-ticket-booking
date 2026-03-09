@@ -1,8 +1,9 @@
 Feature: Non-Billable Time Booking
 
+
+  @NonbillableFlow
   Scenario: User adds non-billable time successfully
-
-
+  
     Given the user is logged into the application
     And the user navigates to Ticket Management
     When the user searches for the ticket and opens it
