@@ -11,11 +11,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 features="E:\\Selenium\\CLSSNervedemo\\src\\test\\resources\\nerve.feature\\nerve.feature",
-
-glue ="org.steps",
-
 snippets = SnippetType.CAMELCASE,
-
 plugin = {"pretty",
 		"html:target/cucumber-report.html",
 		"json:target/cucumber.json"}

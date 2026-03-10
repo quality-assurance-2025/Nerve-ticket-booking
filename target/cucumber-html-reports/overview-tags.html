@@ -48,32 +48,32 @@ $(document).ready(function() {
 $(document).ready(function() {
 
     var chartData = {
-        labels:  [ "@NonbillableFlow", ] ,
+        labels:  [ "@NonbillableFlow",  "@agentStatus", ] ,
         datasets: [
             {
                 label: "Passed",
                 backgroundColor: "#92DD96",
-                data:  [ 100.00, ] 
+                data:  [ 0.00,  0.00, ] 
             },
             {
                 label: "Failed",
                 backgroundColor: "#F2928C",
-                data:  [ 0.00, ] 
+                data:  [ 0.00,  0.00, ] 
             },
             {
                 label: "Skipped",
                 backgroundColor: "#8AF",
-                data:  [ 0.00, ] 
+                data:  [ 87.50,  87.50, ] 
             },
             {
                 label: "Pending",
                 backgroundColor: "#F5F28F",
-                data:  [ 0.00, ] 
+                data:  [ 0.00,  0.00, ] 
             },
             {
                 label: "Undefined",
                 backgroundColor: "#F5B975",
-                data:  [ 0.00, ] 
+                data:  [ 12.50,  12.50, ] 
             }
         ]
     };
@@ -133,7 +133,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>CLSS Nerve Automation</td>
-      <td>10 Mar 2026, 13:49</td>
+      <td>10 Mar 2026, 14:14</td>
     </tr>
   </tbody>
 </table>
@@ -197,52 +197,69 @@ $(document).ready(function() {
       <tr>
         <td class="tagname"><a href="report-tag_2867005851.html">@NonbillableFlow</a></td>
 
-        <td      class="passed"    >8</td>
         <td >0</td>
         <td >0</td>
+        <td     class="skipped"   >7</td>
         <td >0</td>
-        <td >0</td>
+        <td   class="undefined" >1</td>
         <td class="total">8</td>
 
-        <td  class="passed"    >1</td>
         <td >0</td>
+        <td  class="failed"    >1</td>
         <td class="total">1</td>
 
-        <td class="duration" data-value="35006527000">35.006</td>
-        <td class="passed">Passed</td>
+        <td class="duration" data-value="1966600">0.001</td>
+        <td class="failed">Failed</td>
+      </tr>
+      <tr>
+        <td class="tagname"><a href="report-tag_3471064854.html">@agentStatus</a></td>
+
+        <td >0</td>
+        <td >0</td>
+        <td     class="skipped"   >7</td>
+        <td >0</td>
+        <td   class="undefined" >1</td>
+        <td class="total">8</td>
+
+        <td >0</td>
+        <td  class="failed"    >1</td>
+        <td class="total">1</td>
+
+        <td class="duration" data-value="2990900">0.002</td>
+        <td class="failed">Failed</td>
       </tr>
   </tbody>
 
   <tfoot class="total">
     <tr>
       <td></td>
-      <td>8</td>
       <td>0</td>
       <td>0</td>
+      <td>14</td>
       <td>0</td>
-      <td>0</td>
-      <td>8</td>
+      <td>2</td>
+      <td>16</td>
 
-      <td>1</td>
       <td>0</td>
-      <td>1</td>
+      <td>2</td>
+      <td>2</td>
 
-      <td class="duration">35.006</td>
-      <td>1</td>
+      <td class="duration">0.004</td>
+      <td>2</td>
     </tr>
     <tr>
       <td></td>
-      <td>100.00%</td>
       <td>0.00%</td>
       <td>0.00%</td>
+      <td>87.50%</td>
       <td>0.00%</td>
-      <td>0.00%</td>
+      <td>12.50%</td>
       <td></td>
-      <td>100.00%</td>
       <td>0.00%</td>
-      <td></td>
-      <td></td>
       <td>100.00%</td>
+      <td></td>
+      <td></td>
+      <td>0.00%</td>
     </tr>
   </tfoot>
 </table>

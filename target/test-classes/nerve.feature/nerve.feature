@@ -1,9 +1,7 @@
 Feature: Non-Billable Time Booking
 
-
   @NonbillableFlow
   Scenario: User adds non-billable time successfully
-  
     Given the user is logged into the application
     And the user navigates to Ticket Management
     When the user searches for the ticket and opens it
@@ -13,14 +11,14 @@ Feature: Non-Billable Time Booking
     When the user logs out of the application
     Then the login page should be displayed
 
+  #@agentStatus
   #Scenario: Agent updates ticket status
-  
     #Given the user is logged into the application
     #And the user navigates to Ticket Management
-   	#When the user searches for a ticket and opens it
+    #When the user searches for the ticket and opens it
     #And the user clicks on Edit Ticket
     #And the user clicks on Action and selects Edit
     #Then the user changes the status, enters remarks, and clicks Save
-   	#When the user clicks Update and closes the ticket
-   	#Then the ticket should be updated successfully
-    
+    #When the user clicks Update and closes the ticket
+    #Then the ticket should be updated successfully
+   
