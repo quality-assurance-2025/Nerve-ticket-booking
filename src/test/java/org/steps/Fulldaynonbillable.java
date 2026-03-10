@@ -54,7 +54,7 @@ public class Fulldaynonbillable {
 			System.out.println("No ForceLogin");
 		}
 		Thread.sleep(2000);
-		System.out.println("testing123");
+		
 
 	}
 
@@ -112,7 +112,7 @@ public class Fulldaynonbillable {
 
 		Thread.sleep(2000);	
 		WebElement ticket1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//td[text()='"+ticketNumber+"'])[2]"))); 
-
+		Thread.sleep(1000);	
 		Actions actions = new Actions(driver);
 		actions.doubleClick(ticket1).perform();
 
