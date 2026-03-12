@@ -51,10 +51,10 @@ $(document).ready(function() {
         datasets: [{
             data: [
                 0,
+                1,
+                7,
                 0,
-                14,
-                0,
-                2
+                0
             ],
             backgroundColor: [
                 "#00B000",
@@ -93,7 +93,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 16) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 8) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -107,7 +107,7 @@ $(document).ready(function() {
         datasets: [{
             data: [
                 0,
-                2
+                1
             ],
             backgroundColor: [
                 "#00B000",
@@ -140,7 +140,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 2) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 1) / 100;
                         return tooltipLabel + ": " + tooltipData + " (" + tooltipPercentage + "%)";
                     }
                 }
@@ -228,7 +228,7 @@ $(document).ready(function() {
   <tbody>
     <tr class="info">
       <td>CLSS Nerve Automation</td>
-      <td>10 Mar 2026, 14:14</td>
+      <td>12 Mar 2026, 17:49</td>
     </tr>
   </tbody>
 </table>
@@ -326,17 +326,17 @@ $(document).ready(function() {
         <td class="tagname"><a href="report-feature_3166523382.html">Non-Billable Time Booking</a></td>
 
         <td >0</td>
+        <td      class="failed"    >1</td>
+        <td     class="skipped"   >7</td>
         <td >0</td>
-        <td     class="skipped"   >14</td>
         <td >0</td>
-        <td   class="undefined" >2</td>
-        <td class="total">16</td>
+        <td class="total">8</td>
 
         <td >0</td>
-        <td  class="failed"    >2</td>
-        <td class="total">2</td>
+        <td  class="failed"    >1</td>
+        <td class="total">1</td>
 
-        <td class="duration" data-value="4957500">0.004</td>
+        <td class="duration" data-value="74519985600">1:14.519</td>
         <td class="failed">Failed</td>
       </tr>
   </tbody>
@@ -345,26 +345,26 @@ $(document).ready(function() {
     <tr>
       <td></td>
       <td>0</td>
+      <td>1</td>
+      <td>7</td>
       <td>0</td>
-      <td>14</td>
       <td>0</td>
-      <td>2</td>
-      <td>16</td>
+      <td>8</td>
 
       <td>0</td>
-      <td>2</td>
-      <td>2</td>
+      <td>1</td>
+      <td>1</td>
 
-      <td class="duration">0.004</td>
+      <td class="duration">1:14.519</td>
       <td>1</td>
     </tr>
     <tr>
       <td></td>
       <td>0.00%</td>
-      <td>0.00%</td>
+      <td>12.50%</td>
       <td>87.50%</td>
       <td>0.00%</td>
-      <td>12.50%</td>
+      <td>0.00%</td>
       <td></td>
       <td>0.00%</td>
       <td>100.00%</td>

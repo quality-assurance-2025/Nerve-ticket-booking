@@ -35,7 +35,7 @@ public class Fulldaynonbillable {
 		driver.manage().window().maximize();
 
 		//Live Server 
-		driver.get("https://nerve.clsslabs.com/#/ticket");
+		driver.get("https://nervedev.clsslabs.com/#/ticket");
 
 		//Login 
 		WebElement email = driver.findElement(By.id("email"));
@@ -176,6 +176,7 @@ public class Fulldaynonbillable {
 	@Then("the non-billable time should be added successfully")
 	public void theNonBillableTimeShouldBeAddedSuccessfully() throws InterruptedException {
 		//do by manual
+		Thread.sleep(8000);
 
 		/*
 		 * WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
