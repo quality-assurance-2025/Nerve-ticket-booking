@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src\\test\\resources\\nerve.feature\\nerve1.feature",
+@CucumberOptions(features="src\\test\\resources\\features\\nerve.feature",
 glue="org.steps",
 snippets = SnippetType.CAMELCASE,
 plugin = {"pretty",
