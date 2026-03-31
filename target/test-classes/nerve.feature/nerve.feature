@@ -11,14 +11,14 @@ Feature: Non-Billable Time Booking
     When the user logs out of the application
     Then the login page should be displayed
 
-  #@agentStatus
-  #Scenario: Agent updates ticket status
-    #Given the user is logged into the application
-    #And the user navigates to Ticket Management
-    #When the user searches for the ticket and opens it
-    #And the user clicks on Edit Ticket
-    #And the user clicks on Action and selects Edit
-    #Then the user changes the status, enters remarks, and clicks Save
-    #When the user clicks Update and closes the ticket
-    #Then the ticket should be updated successfully
-   
+  @agentStatus
+  Scenario: Agent updates ticket status
+    Given the user is logged into the application
+    And the user navigates to Holiday Master
+    Then choose company and year 
+    And click refresh 
+    And move to the Attendance History
+    Then test the CONSULTANT TIME SHEET REPORT
+    Then the login page should be displayed
+    
+    

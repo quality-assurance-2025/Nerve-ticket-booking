@@ -23,8 +23,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Fulldaynonbillable {
 
-	public static WebDriver driver;
-
+	//public static WebDriver driver;
+	private WebDriver driver;
 	@Given("the user is logged into the application")
 	public void theUserIsLoggedIntoTheApplication() throws InterruptedException, IOException{
 
@@ -44,17 +44,21 @@ public class Fulldaynonbillable {
 		WebElement password = driver.findElement(By.id("password"));
 		password.sendKeys(ConfigReader.get("password"), Keys.ENTER);
 
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+			WebElement forceLogin = wait.until(
+					ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=' Force Login? ']")));
+
+			forceLogin.click();
+		} 
+
+		catch (Exception e) {
+			System.out.println("No ForceLogin popup appeared");
+		}
+
 		Thread.sleep(2000);
 
-		WebElement forceLogin = driver.findElement(By.xpath("//span[text()=' Force Login? ']"));
-		if(forceLogin.isDisplayed()) {
-			forceLogin.click();
-		}
-		else {
-			System.out.println("No ForceLogin");
-		}
-		Thread.sleep(2000);
-		System.out.println("Testing");
 
 	}
 
@@ -81,7 +85,7 @@ public class Fulldaynonbillable {
 
 		WebElement transactions = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=\"Transactions \"]")));
 		transactions.click();
-	//	System.out.println("Transaction is clicked");
+		//	System.out.println("Transaction is clicked");
 
 		WebElement ticketManagement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[text()=' Ticket Management ']")));
 		ticketManagement.click();
@@ -91,13 +95,13 @@ public class Fulldaynonbillable {
 
 	@When("the user searches for the ticket and opens it")
 	public void theUserSearchesForTheTicketAndOpensIt() throws InterruptedException, IOException  {
-		
+
 		ConfigReader.loadProperties();
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 		String ticketNumber = ConfigReader.get("ticketNumber");
-		
+
 		WebElement searchBox =wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath("/html/body/app-root/app-main-layout/app-ticket/section/div/div/div/div/div/div/div[3]/dx-data-grid/div/div[5]/div[1]/table/tbody/tr[2]/td[3]/div/div[2]/div/div/div[1]/input"))); 
 		searchBox.sendKeys(ticketNumber);
 
@@ -107,12 +111,13 @@ public class Fulldaynonbillable {
 		 * "/html/body/app-root/app-main-layout/app-ticket/section/div/div/div/div/div/div/div[3]/dx-data-grid/div/div[5]/div[1]/table/tbody/tr[2]/td[3]/div/div[2]/div/div/div[1]/input"
 		 * ))); searchBox.sendKeys("HAPALASAA10000031");
 		 */
-		
+
 
 
 		Thread.sleep(2000);	
 		WebElement ticket1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//td[text()='"+ticketNumber+"'])[2]"))); 
 		Thread.sleep(1000);	
+
 		Actions actions = new Actions(driver);
 		actions.doubleClick(ticket1).perform();
 
@@ -122,7 +127,7 @@ public class Fulldaynonbillable {
 	@When("the user clicks on Time Booking")
 	public void theUserClicksOnTimeBooking() throws InterruptedException { 
 
-		
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		WebElement timeBooking = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Time Booking']")));
@@ -144,12 +149,13 @@ public class Fulldaynonbillable {
 		Thread.sleep(1000);
 
 		String date3 = ConfigReader.get("date");
+		
 		WebElement date2 = wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath("//div[text()=' " +date3+ " ']")));
 		date2.click();
 
 		//		WebElement date2 = driver.findElement(By.xpath());
-		
+
 
 		/*
 		 * WebElement hours = driver.findElement(By.id("//mat-select[@id=\"mat-select-12\"]")); 
@@ -217,9 +223,86 @@ public class Fulldaynonbillable {
 
 
 
+	@Then("the user navigates to Holiday Master")
+	public void theUserNavigatesToHolidayMaster() throws InterruptedException {
+
+		WebDriverWait wait =  new WebDriverWait(driver, Duration.ofSeconds(20));
+		//driver.navigate().to("https://nervedev.clsslabs.com/#/holidaymaster");
+
+		WebElement button = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/app-root/app-main-layout/app-header/nav/div/div[2]/ul[1]/li/button/span[1]/i")));
+		button.click();
+		//System.out.println("Side bar opened");
+
+		WebElement configuration = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()=\"Configuration \"]")));
+		configuration .click();
+		//	System.out.println("Transaction is clicked");
+
+		WebElement  holidayMaster = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h4[text()=' Holiday Master ']")));
+		holidayMaster.click();
+	}
+
+	@Then("choose company and year")
+	public void chooseCompanyAndYear() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+
+		Thread.sleep(8000);
+
+		WebElement companyName = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='mat-select-arrow ng-tns-c234-2']")));
+		companyName.click();
 
 
+		WebElement cLSSLABS = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()=' CLSS Labs ']")));
+		cLSSLABS.click();
 
+		WebElement search = wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//input[@placeholder=\"Search\"]")));
+
+		search.sendKeys("pongal");
+
+		// Use getAttribute("value") to get text from input fields
+		String holidaySearch = search.getAttribute("value");
+		System.out.println(holidaySearch);
+
+		WebElement pongalElement = driver.findElement(By.xpath("//mat-cell[text()=' Pongal ']"));
+
+		// Get text from the WebElement, then compare using .equals()
+		String pongalText = pongalElement.getText().trim();
+
+		if (holidaySearch.equalsIgnoreCase(pongalText)) {
+			System.out.println("Search button is working fine");
+		} 
+		else {
+			System.out.println("Search button is not working");
+		}
+		Thread.sleep(2000);
+	}
+	
+	@Then("click refresh")
+	public void clickRefresh() {
+		WebElement refreshButton = driver.findElement(By.xpath("/html/body/app-root/app-main-layout/app-holidaymaster/section/div/div/div/div/div/div/div/div/div/div[1]/div/div[2]/ul/li[3]/div/button/span[1]/mat-icon"));
+		refreshButton.click();
+
+		System.out.println("refresh button is working");
+	}
+	
+	@Then("move to the Attendance History")
+	public void moveToTheAttendanceHistory() {
+		driver.navigate().to("https://nervedev.clsslabs.com/#/alms");
+		
+	}
+	@Then("test the CONSULTANT TIME SHEET REPORT")
+	public void testTheCONSULTANTTIMESHEETREPORT() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		WebElement openCalendar = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label=\"Open calendar\"]")));
+		openCalendar.click();
+		
+		String Attendancedate = ConfigReader.get("Attendancedate");
+		
+		WebElement date2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()=' " +Attendancedate+ " ']")));
+		date2.click();	
+		
+	}
 
 }
 
