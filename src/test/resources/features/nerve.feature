@@ -11,14 +11,14 @@ Feature: Non-Billable Time Booking
     When the user logs out of the application
     Then the login page should be displayed
 
-  @agentStatus
+  @HolidaymasterAndAttendanceHistory
   Scenario: Agent updates ticket status
     Given the user is logged into the application
     And the user navigates to Holiday Master
     Then choose company and year 
     And click refresh 
     And move to the Attendance History
-    Then test the CONSULTANT TIME SHEET REPORT
+    Then test the consultant time Sheet Report
     Then the login page should be displayed
     
     
